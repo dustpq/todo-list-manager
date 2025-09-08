@@ -25,4 +25,6 @@ public:
   string getName() const;
   string getDate() const;
   string getTime() const;
+
+  void setName();
 };
