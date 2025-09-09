@@ -1,21 +1,11 @@
 #pragma once
-#include <iostream>
 #include <string>
-#include <type_traits>
 
-using std::string;
+namespace Console {
 
-class Console {
+void clearConsole();
+void getInput();
+void outputMessage(std::string &message);
+void getUserConfirmation();
 
-private:
-  string userInput = "";
-  bool userConfirm = false;
-
-public:
-  Console();
-
-  void clearConsole();
-  void getInput();
-  void outputMessage(string message);
-  void getUserConfirmation();
-};
+}; // namespace Console
