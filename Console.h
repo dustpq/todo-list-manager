@@ -4,8 +4,9 @@
 namespace Console {
 
 void clearConsole();
-void getInput();
-void outputMessage(std::string &message);
-void getUserConfirmation();
+std::string getInput();
+void outputMessage(const std::string &message);
+void pauseForInput();
+bool getUserConfirmation();
 
 }; // namespace Console
