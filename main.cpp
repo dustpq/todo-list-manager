@@ -11,20 +11,25 @@ int main() {
 
   string input1, input2, input3;
 
-  std::cout << "Enter task name: ";
+  Console::outputMessage("Enter task name: ");
   std::getline(std::cin, input1);
+  input1 = Console::getInput();
 
-  std::cout << "Enter task date: ";
-  std::getline(std::cin, input2);
+  Console::outputMessage("Enter task date: ");
+  std::getline(std::cin, input1);
+  input2 = Console::getInput();
 
-  std::cout << "Enter task time: ";
-  std::getline(std::cin, input3);
+  Console::outputMessage("Enter task time: ");
+  std::getline(std::cin, input1);
+  input3 = Console::getInput();
 
-  Task task1(input1, input2, input3);
+  Task task(input1, input2, input3);
 
-  std::cout << "You have made a task with the following attributes:\n";
-  std::cout << "Name: " + task1.getName() + "\nDate: " + task1.getDate() +
-                   "\nTime: " + task1.getTime();
+  Console::outputMessage("Created task:\n" + "Task name: " + task.getName() +
+                         "\nTask Date: " + task.getDate() +
+                         "\nTask Time: " + task.getTime());
+
+  Console::pauseForInput();
 
   return 0;
 }
