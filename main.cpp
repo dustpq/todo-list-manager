@@ -1,3 +1,4 @@
+#include "Console.h"
 #include "Task.h"
 #include <iostream>
 #include <string>
@@ -5,6 +6,8 @@
 using std::string;
 
 int main() {
+
+  Console::clearConsole();
 
   string input1, input2, input3;
 
