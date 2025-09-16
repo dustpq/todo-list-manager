@@ -1,24 +1,24 @@
 #include "Console.h"
 #include <iostream>
 
+namespace Console {
+
 void clearConsole() { std::cout << "\033[2J\033[H"; };
 
-std::string Console::getInput() {
+std::string getInput() {
   std::string input;
   std::getline(std::cin, input);
   return input;
 };
 
-void Console::outputMessage(const std::string &message) {
-  std::cout << message + "/n";
-};
+void outputMessage(const std::string &message) { std::cout << message + "/n"; };
 
-void Console::pauseForInput() {
+void pauseForInput() {
   Console::outputMessage("Press enter to continue...");
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-bool Console::getUserConfirmation(char input) {
+bool getUserConfirmation(char input) {
   switch (input) {
   case 'Y':
     return true;
@@ -32,8 +32,8 @@ bool Console::getUserConfirmation(char input) {
   }
 };
 
-bool Console::validateUserInput(const std::vector<std::string> allowedInputs,
-                                std::string userInput) {
+bool validateUserInput(const std::vector<std::string> allowedInputs,
+                       std::string userInput) {
   for (std::string inputs : allowedInputs) {
     if (inputs == userInput) {
       return true;
@@ -41,3 +41,5 @@ bool Console::validateUserInput(const std::vector<std::string> allowedInputs,
   }
   return false;
 };
+
+}; // namespace Console
