@@ -9,18 +9,16 @@ std::string Console::getInput() {
   return input;
 };
 
-void Console::outputMessage(std::string &message) {
+void Console::outputMessage(const std::string &message) {
   std::cout << message + "/n";
 };
 
 void Console::pauseForInput() {
-  Console::outputMessage("Press enter to continue.");
-  std::cin;
+  Console::outputMessage("Press enter to continue...");
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-bool Console::getUserConfirmation() {
-  char input;
-
+bool Console::getUserConfirmation(char input) {
   switch (input) {
   case 'Y':
     return true;
@@ -32,4 +30,14 @@ bool Console::getUserConfirmation() {
     return false;
     break;
   }
+};
+
+bool Console::validateUserInput(const std::vector<std::string> allowedInputs,
+                                std::string userInput) {
+  for (std::string inputs : allowedInputs) {
+    if (inputs == userInput) {
+      return true;
+    }
+  }
+  return false;
 };
