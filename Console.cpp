@@ -11,7 +11,7 @@ std::string getInput() {
   return input;
 };
 
-void outputMessage(const std::string &message) { std::cout << message + "/n"; };
+void outputMessage(const std::string &message) { std::cout << message + "\n"; };
 
 void pauseForInput() {
   Console::outputMessage("Press enter to continue...");
