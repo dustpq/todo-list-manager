@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -6,10 +8,14 @@ namespace Console {
 
 void clearConsole();
 std::string getInput();
-void outputMessage(const std::string &message);
 void pauseForInput();
 bool getUserConfirmation(char input);
-bool validateUserInput(const std::vector<std::string> allowedInputs,
+bool validateMenuInput(const std::vector<std::string> allowedInputs,
                        std::string userInput);
 
+template <typename... Args> void outputMessage(Args &&...args) {
+  std::ostringstream oss;
+  (oss << ... << args);
+  std::cout << oss.str();
+};
 }; // namespace Console

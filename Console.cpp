@@ -11,12 +11,10 @@ std::string getInput() {
   return input;
 };
 
-void outputMessage(const std::string &message) { std::cout << message + "\n"; };
-
 void pauseForInput() {
   Console::outputMessage("Press enter to continue...");
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-}
+};
 
 bool getUserConfirmation(char input) {
   switch (input) {
@@ -32,7 +30,7 @@ bool getUserConfirmation(char input) {
   }
 };
 
-bool validateUserInput(const std::vector<std::string> allowedInputs,
+bool validateMenuInput(const std::vector<std::string> allowedInputs,
                        std::string userInput) {
   for (std::string inputs : allowedInputs) {
     if (inputs == userInput) {
